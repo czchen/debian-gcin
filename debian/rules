@@ -8,12 +8,36 @@ GTK2VER := $(shell pkg-config --variable=gtk_binary_version gtk+-2.0)
 GTK3VER := $(shell pkg-config --variable=gtk_binary_version gtk+-3.0)
 DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
-%:
-	dh $@ 
+PKD   = $(abspath $(dir $(MAKEFILE_LIST)))
+PKG   = $(word 2,$(shell dpkg-parsechangelog -l$(PKD)/changelog | grep ^Source))
+UVER  = $(shell dpkg-parsechangelog -l$(PKD)/changelog | perl -ne 'print $$1 if m{^Version:\s+(?:\d+:)?(\d.*)(?:\-\d+.*)};')
+DTYPE = +dfsg
+VER  ?= $(subst $(DTYPE),,$(UVER))
+
+## http://wiki.debian.org/onlyjob/get-orig-source
+.PHONY: get-orig-source
+get-orig-source: $(PKG)_$(VER)$(DTYPE).orig.tar.xz $(info I: $(PKG)_$(VER)$(DTYPE))
+	@
+
+$(PKG)_$(VER)$(DTYPE).orig.tar.xz:
+	@echo "# Downloading..."
+	uscan --noconf --verbose --rename --destdir=$(CURDIR) --check-dirname-level=0 --force-download --download-version $(VER) $(PKD)
+	$(if $(wildcard $(PKG)-$(VER)),$(error $(PKG)-$(VER) exist, aborting..))
+	@echo "# Extracting..."
+	mkdir $(PKG)-$(VER) \
+	&& tar -xf $(PKG)_$(VER).orig.tar.* --directory $(PKG)-$(VER) --strip-components 1 \
+	|| $(RM) -r $(PKG)-$(VER)
+	@echo "# Cleaning-up..."
+	cd $(PKG)-$(VER) \
+	&& $(RM) data/dayi3.cin \
+	&& sed -i "s/dayi3.gtab //" data/Makefile
+	@echo "# Packing..."
+	XZ_OPT="-6v" tar -caf "$(PKG)_$(VER)$(DTYPE).orig.tar.xz" --owner=root --group=root --mode=a+rX "$(PKG)-$(VER)"\
+	&& $(RM) -r "$(PKG)-$(VER)"
 
 override_dh_auto_clean:
 	make clean
- 
+
 override_dh_auto_install:
 	make install DESTDIR=$(CURDIR)/debian/tmp
 
