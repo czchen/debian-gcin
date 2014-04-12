@@ -4,6 +4,9 @@ gcin (2.8.2+dfsg-1) unstable; urgency=medium
   * New upstream release.
   * update watch url again.
   * add dfsg-free repackaging script
+  * multiarch libraries for GTK+2 and GTK+3, closes: #693052
+  * update debian helper compat to 9
+  * debian/patches: fix sparc build error
 
   [ ChangZhuo Chen (陳昌倬) ]
   * Update debian/watch
@@ -14,14 +17,6 @@ gcin (2.8.2+dfsg-1) unstable; urgency=medium
     Thanks to Yao Wei (魏銘廷)
 
  -- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>  Sat, 12 Apr 2014 11:24:29 +0800
-
-gcin (2.8.1+dfsg-2) unstable; urgency=low
-
-  * multiarch libraries for GTK+2 and GTK+3, closes: #693052
-  * update debian helper compat to 9
-  * debian/patches: fix sparc build error
-
- -- Yao Wei (魏銘廷) <mwei@lxde.org>  Mon, 16 Sep 2013 23:03:47 +0800
 
 gcin (2.8.1+dfsg-1) unstable; urgency=low
 
