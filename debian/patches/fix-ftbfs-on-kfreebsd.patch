@@ -1,0 +1,12 @@
+Description: Fix FTBFS on kfreebsd-*
+--- gcin-2.8.2+dfsg.orig/configure
++++ gcin-2.8.2+dfsg/configure
+@@ -27,7 +27,7 @@ if [ $? = 0 ]; then
+ fi
+ 
+ FREEBSD=0
+-uname | grep FreeBSD > /dev/null 2> /dev/null
++uname | grep FreeBSD | grep -v GNU/kFreeBSD > /dev/null 2> /dev/null
+ if [ $? = 0 ]; then
+   FREEBSD=1
+ fi

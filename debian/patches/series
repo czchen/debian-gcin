@@ -2,3 +2,4 @@
 02_txt2gtab-phrase_manpage.patch
 03_gcin-tools_desktop_keyword_entry.patch
 04_fix-sparc-build.patch
+fix-ftbfs-on-kfreebsd.patch
