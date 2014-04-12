@@ -1,3 +1,20 @@
+gcin (2.8.2+dfsg-1) unstable; urgency=medium
+
+  [ Yao Wei (魏銘廷) ]
+  * New upstream release.
+  * update watch url again.
+  * add dfsg-free repackaging script
+
+  [ ChangZhuo Chen (陳昌倬) ]
+  * Update debian/watch
+  * Fix debian/rules
+  * Add ChangZhuo Chen (陳昌倬) as uploader
+  * Install /etc/X11/xinit/xinput.d/gcin in gcin package
+  * Fix FTBFS on kfreebsd-*
+    Thanks to Yao Wei (魏銘廷)
+
+ -- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>  Sat, 12 Apr 2014 11:24:29 +0800
+
 gcin (2.8.1+dfsg-2) unstable; urgency=low
 
   * multiarch libraries for GTK+2 and GTK+3, closes: #693052
