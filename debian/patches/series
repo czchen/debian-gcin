@@ -3,3 +3,4 @@
 03_gcin-tools_desktop_keyword_entry.patch
 04_fix-sparc-build.patch
 fix-ftbfs-on-kfreebsd.patch
+FTBFS_mips_powerpc_s390x.patch
