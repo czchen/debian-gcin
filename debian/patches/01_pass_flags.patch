@@ -17,25 +17,30 @@ Last-Update: 2013-08-02
  MAC_OS=0
  uname | grep Darwin > /dev/null 2> /dev/null
  if [ $? = 0 ]; then
-@@ -313,7 +313,9 @@
+@@ -322,7 +322,9 @@
  echo "libdir=\$(DESTDIR)$libdir" >> config.mak
  echo "gcinlibdir=\$(DESTDIR)$gcinlibdir" >> config.mak
  echo "includedir=\$(DESTDIR)$includedir" >> config.mak
 -echo "LDFLAGS=-Wl,--as-needed $GTKLDFLAGS -lX11 -ldl -lm" >> config.mak
-+echo "CFLAGS=$CFLAGS" >> config.mak
-+echo "LDFLAGS_ENV=$LDFLAGS" >> config.mak
++echo "CFLAGS=$CFLAGS $CPPFLAGS" >> config.mak
++echo "CXXFLAGS=$CXXFLAGS $CPPFLAGS" >> config.mak
 +echo "LDFLAGS=$LDFLAGS -Wl,--as-needed $GTKLDFLAGS -lX11 -ldl -lm" >> config.mak
  echo "GCIN_VERSION=$GCIN_VERSION" >> config.mak
  echo "GCIN_TABLE_DIR=\$(datadir_r)/gcin/table" >> config.mak
  echo "GCIN_OGG_DIR=\$(datadir_r)/gcin/ogg" >> config.mak
 --- a/qt4-im/Makefile
 +++ b/qt4-im/Makefile
-@@ -8,7 +8,7 @@
+@@ -4,11 +4,11 @@
+ IMMODULES=$(libdir)/$(DEB_BUILD_MULTIARCH)/$(QTIM)
+ 
+ INCS=-I../im-client -I/usr/include/X11 `pkg-config QtCore QtGui --cflags`
+-CXXFLAGS=$(OPTFLAGS) $(INCS) -Wall -D_REENTRANT -DUNIX=1 -fPIC  -DQT4 -DQT_SHARED \
++CXXFLAGS+=$(OPTFLAGS) $(INCS) -Wall -D_REENTRANT -DUNIX=1 -fPIC  -DQT4 -DQT_SHARED \
  -DQT_IMMODULE -DPIC
  OBJS= moc_gcin-qt.o gcin-qt.o im-gcin-qt.o gcin-imcontext-qt.o
  .SUFFIXES:	.c .cpp .a .so .E .h
 -LDFLAGS=-L../im-client -lgcin-im-client `pkg-config QtCore QtGui --libs`
-+LDFLAGS=$(LDFLAGS_ENV) -L../im-client -lgcin-im-client `pkg-config QtCore QtGui --libs`
++LDFLAGS+=-L../im-client -lgcin-im-client `pkg-config QtCore QtGui --libs`
  all:    im-gcin.so
  
  .cpp.E:
@@ -106,3 +111,14 @@ Last-Update: 2013-08-02
  INC = -I../include -I/usr/X11R6/include
  
  
+--- a/qt-im/Makefile
++++ b/qt-im/Makefile
+@@ -3,7 +3,7 @@
+ QTIM=$(QT)/plugins/inputmethods
+ IMMODULES=$(libdir)/$(QTIM)
+ INCS=-I../im-client -I/usr/include `pkg-config --cflags qt-mt` -I/usr/include/Xft2/X11/Xft  -I/usr/include/fontconfig -I/usr/include/freetype2
+-CXXFLAGS=$(OPTFLAGS) $(INCS) -Wall -D_REENTRANT -DUNIX=1 -fPIC  -DQT_THREAD_SUPPORT -DQT_PLUGIN -DQT_SHARED -DQT_NO_DEBUG
++CXXFLAGS+=$(OPTFLAGS) $(INCS) -Wall -D_REENTRANT -DUNIX=1 -fPIC  -DQT_THREAD_SUPPORT -DQT_PLUGIN -DQT_SHARED -DQT_NO_DEBUG
+ OBJS=qgcininputcontextplugin.o qgcininputcontextplugin_my.o qgcininputcontext.o qgcininputcontext_x11.o
+ .SUFFIXES:	.c .cpp .a .so .E .h
+ LDFLAGS=-L../im-client -lgcin-im-client -Wl,-rpath,$(gcinlibdir) `pkg-config qt-mt --libs`
