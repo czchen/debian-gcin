@@ -33,7 +33,8 @@ $(PKG)_$(VER)$(DTYPE).orig.tar.xz:
 	@echo "# Cleaning-up..."
 	cd $(PKG)-$(VER) \
 	&& $(RM) data/dayi3.cin \
-	&& sed -i "s/dayi3.gtab //" data/Makefile
+	&& sed -i "s/dayi3.gtab //" data/Makefile \
+	&& $(RM) gcin-*.tar.xz
 	@echo "# Packing..."
 	XZ_OPT="-6v" tar -caf "$(PKG)_$(VER)$(DTYPE).orig.tar.xz" --owner=root --group=root --mode=a+rX "$(PKG)-$(VER)"\
 	&& $(RM) -r "$(PKG)-$(VER)"
