@@ -1,3 +1,15 @@
+gcin (2.8.2+dfsg1-1) unstable; urgency=medium
+
+  * Repack upstream tarball to fix source-contains-unsafe-symlink
+  * debian/rules:
+    * Preserve timestamp of data/Makefile when packing DFSG free source
+      tarball.
+    * Change +dfsg to +dfsg1 for repacking DFSG source tarball to fix
+      source-contains-unsafe-symlink
+  * Add manpage for ts-edit-en and ts-contribute-en
+
+ -- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>  Thu, 17 Apr 2014 18:20:35 +0800
+
 gcin (2.8.2+dfsg-2) unstable; urgency=medium
 
   * Add hardening options
