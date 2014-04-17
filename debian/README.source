@@ -4,5 +4,7 @@ Use the following command to get DFSG source tarball
 
 This command will download upstream tarball, remove dayi3.cin related code due
 to non DFSG license, and remove gcin-*.tar.xz to avoid
-source-contains-unsafe-symlink. Because the script use sed to manipulate
-Makefile, it cannot generate the same tarball every time because of timestamp.
+source-contains-unsafe-symlink.
+
+Currently get-orig-source cannot generate identical tarball when upstream
+version is the same.

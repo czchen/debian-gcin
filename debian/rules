@@ -11,7 +11,7 @@ DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 PKD   = $(abspath $(dir $(MAKEFILE_LIST)))
 PKG   = $(word 2,$(shell dpkg-parsechangelog -l$(PKD)/changelog | grep ^Source))
 UVER  = $(shell dpkg-parsechangelog -l$(PKD)/changelog | perl -ne 'print $$1 if m{^Version:\s+(?:\d+:)?(\d.*)(?:\-\d+.*)};')
-DTYPE = +dfsg
+DTYPE = +dfsg1
 VER  ?= $(subst $(DTYPE),,$(UVER))
 
 ## http://wiki.debian.org/onlyjob/get-orig-source
@@ -33,10 +33,14 @@ $(PKG)_$(VER)$(DTYPE).orig.tar.xz:
 	@echo "# Cleaning-up..."
 	cd $(PKG)-$(VER) \
 	&& $(RM) data/dayi3.cin \
+	&& cp --preserve=all data/Makefile data/Makefile.orig \
 	&& sed -i "s/dayi3.gtab //" data/Makefile \
+	&& touch --reference=data/Makefile.orig data/Makefile \
+	&& $(RM) data/Makefile.orig \
 	&& $(RM) gcin-*.tar.xz
 	@echo "# Packing..."
-	XZ_OPT="-6v" tar -caf "$(PKG)_$(VER)$(DTYPE).orig.tar.xz" --owner=root --group=root --mode=a+rX "$(PKG)-$(VER)"\
+	find -L "$(PKG)-$(VER)" -xdev -type f -print | sort \
+	| XZ_OPT="-6v" tar -caf "$(PKG)_$(VER)$(DTYPE).orig.tar.xz" --owner=root --group=root --mode=a+rX "$(PKG)-$(VER)"\
 	&& $(RM) -r "$(PKG)-$(VER)"
 
 override_dh_auto_clean:
