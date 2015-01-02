@@ -14,6 +14,7 @@ Files: debian/*
 Copyright: 2009 Wen-Yen Chuang 
            2011 Kan-Ru Chen
            2011-2012 Yao Wei
+           2014-2015 ChangZhuo Chen (陳昌倬)
 License: GPL-2+
 
 Files: eggtrayicon.cpp eggtrayicon.h
@@ -92,9 +93,9 @@ License: ar30
  A licensee does not need to request additional license documentation from 
  the licensor.
 
-Files: gtk-im/gtkimcontextgcin.c gtk-im/gtkimcontextgcin.h
-       gtk-im/imgcin.c gtk3-im/gtkimcontextgcin.c
-       gtk3-im/gtkimcontextgcin.h gtk3-im/imgcin.c
+Files: gtk-im/gtkimcontextgcin.c
+       gtk-im/gtkimcontextgcin.h
+       gtk-im/imgcin.c
 Copyright: 2000 Red Hat, Inc.
 License: LGPL-2.1+
 
@@ -103,9 +104,9 @@ Files: qt-im/qgcininputcontext.h qt-im/qgcininputcontextplugin.h
 Copyright: 2004 immodule for Qt Project.
 License: GPL-2 or QPL-1
 
-Files: IC.cpp IC.h IMdkit/include/IMdkit.h IMdkit/include/Xi18n.h
+Files: IC.cpp IC.h IMdkit/include/IMdkit.h
        IMdkit/lib/IMConn.c IMdkit/lib/IMMethod.c IMdkit/lib/IMValues.c
-       IMdkit/lib/Xi18n.h IMdkit/lib/Xi18nX.h IMdkit/lib/XimFunc.h
+       IMdkit/lib/Xi18nX.h IMdkit/lib/XimFunc.h
        IMdkit/lib/i18nAttr.c IMdkit/lib/i18nClbk.c IMdkit/lib/i18nIc.c
        IMdkit/lib/i18nMethod.c IMdkit/lib/i18nPtHdr.c IMdkit/lib/i18nUtil.c
        IMdkit/lib/i18nX.c
