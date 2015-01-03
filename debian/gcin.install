@@ -1,10 +1,4 @@
 usr/bin
-usr/lib/gcin/gcin1.so
-usr/lib/gcin/gcin2.so
-usr/lib/gcin/intcode-module.so
-usr/lib/gcin/libgcin-im-client.so
-usr/lib/gcin/libgcin-im-client.so.1
-usr/lib/gcin/libgcin-im-client.so.1.2.5
 usr/share/applications
 debian/gcin.xpm usr/share/pixmaps
 debian-pkg/im-switch/gcin etc/X11/xinit/xinput.d

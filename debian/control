@@ -61,6 +61,17 @@ Description: input method tables for gcin
  .
  This package contains architecture-dependent input method tables.
 
+Package: libgcin
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Description: library for gcin
+ gcin is a GTK+ based input method which focused mainly on Traditional
+ Chinese. However, it is also very useful for Simplified Chinese, Japanese,
+ and many other languages.
+ .
+ This package contains library for gcin.
+
 Package: gcin-dev
 Section: devel
 Architecture: all

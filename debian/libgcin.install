@@ -1,0 +1,3 @@
+usr/lib/*/gcin/gcin*
+usr/lib/*/gcin/intcode-module.so
+usr/lib/*/gcin/libgcin-im-client.so*
