@@ -8,7 +8,6 @@ GTK2VER := $(shell pkg-config --variable=gtk_binary_version gtk+-2.0)
 GTK3VER := $(shell pkg-config --variable=gtk_binary_version gtk+-3.0)
 DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
-## http://wiki.debian.org/onlyjob/get-orig-source
 %:
 	dh $@
 
