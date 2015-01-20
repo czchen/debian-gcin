@@ -26,6 +26,7 @@ Depends: ${misc:Depends},
          ${shlibs:Depends},
          gcin-data,
          gcin-tables,
+         libgcin,
 Recommends: im-config, gcin-gtk3-immodule
 Suggests: gcin-anthy, gcin-qt4-immodule
 Description: GTK+ based input method for Chinese users
