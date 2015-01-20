@@ -27,7 +27,7 @@ override_dh_auto_install:
 	mv debian/tmp/usr/lib/gtk-3.0/immodules debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gtk-3.0/$(GTK3VER)/
 
 	# Add platform triple for gcin libraries.
-	mkdir debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gcin
+	mkdir -p debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gcin
 	mv debian/tmp/usr/lib/gcin/* debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gcin
 
 	# workaround to move arch-dep tables to /usr/lib
