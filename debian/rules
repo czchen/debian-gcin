@@ -27,8 +27,8 @@ override_dh_auto_install:
 	mv debian/tmp/usr/lib/gtk-3.0/immodules debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gtk-3.0/$(GTK3VER)/
 
 	# workaround to move arch-dep tables to /usr/lib
-	mv debian/tmp/usr/share/gcin/table debian/tmp/usr/lib/gcin/
-	ln -s /usr/lib/gcin/table debian/tmp/usr/share/gcin/table
+	mv debian/tmp/usr/share/gcin/table debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gcin/table
+	ln -s /usr/lib/$(DEB_HOST_MULTIARCH)/gcin/table debian/tmp/usr/share/gcin/table
 
 override_dh_install:
 	dh_install --fail-missing \
