@@ -64,6 +64,7 @@ Description: input method tables for gcin
 
 Package: libgcin
 Architecture: any
+Multi-Arch: same
 Depends: ${misc:Depends},
          ${shlibs:Depends},
 Description: library for gcin
