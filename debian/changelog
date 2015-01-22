@@ -1,7 +1,10 @@
-gcin (2.8.3+dfsg1-1) UNRELEASED; urgency=medium
+gcin (2.8.3+dfsg1-1) experimental; urgency=medium
 
   * New upstream release.
   * Bump Standards-Version to 3.9.6
+  * Support Multi-Arch
+    * Add libgcin, gcin-gtk2-immodule
+    * Add postinst, postrm scripts for GTK modules
   * Add debian/gbp.conf
   * debian/control
     * Update Build-Depends for Qt5
@@ -14,7 +17,7 @@ gcin (2.8.3+dfsg1-1) UNRELEASED; urgency=medium
     * Remove get-orig-source
     * Use --fail-missing in dh_install
 
- -- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>  Sat, 03 Jan 2015 01:47:46 +0800
+ -- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>  Thu, 22 Jan 2015 18:29:32 +0800
 
 gcin (2.8.2+dfsg1-1) unstable; urgency=medium
 

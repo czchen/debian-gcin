@@ -1,0 +1,6 @@
+gcin (2.8.3+dfsg1-1) experimental; urgency=medium
+
+  The GTK2 immodule is separated from gcin to support multi architecture. In
+  order to use gcin in GTK2, gcin-gtk2-immodule must be installed.
+
+ -- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>  Thu, 22 Jan 2015 18:29:32 +0800
