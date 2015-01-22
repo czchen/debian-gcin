@@ -27,8 +27,13 @@ Depends: ${misc:Depends},
          gcin-data,
          gcin-tables,
          libgcin,
-Recommends: im-config, gcin-gtk3-immodule
-Suggests: gcin-anthy, gcin-qt4-immodule
+Recommends: im-config,
+            gcin-gtk2-immodule,
+            gcin-gtk3-immodule,
+Suggests: gcin-anthy,
+          gcin-qt4-immodule,
+          gcin-qt5-immodule,
+          gcin-voice,
 Description: GTK+ based input method for Chinese users
  gcin is a GTK+ based input method which focused mainly on Traditional
  Chinese. However, it is also very useful for Simplified Chinese, Japanese,
