@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+CMD=/usr/lib/`dpkg-architecture --host-arch ${DPKG_MAINTSCRIPT_ARCH} --query DEB_HOST_MULTIARCH`/libgtk2.0-0/gtk-query-immodules-2.0
+
+case "$1" in
+    remove|purge)
+        if [ -x ${CMD} ]; then
+            ${CMD} --update-cache
+        else
+            echo "Cannot find ${CMD}" >&2
+        fi;
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0
