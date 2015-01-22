@@ -34,8 +34,13 @@ Description: GTK+ based input method for Chinese users
  Chinese. However, it is also very useful for Simplified Chinese, Japanese,
  and many other languages.
  .
- This package contains only GTK2 immodule. For GTK3 and Qt4 immodule, 
- please install correspondence packages.
+ To use gcin, the correspondence immodule packages also need to be installed.
+ They are:
+ .
+  * gcin-gtk2-immodule for GTK2
+  * gcin-gtk3-immodule for GTK3
+  * gcin-qt4-immodule for Qt4
+  * gcin-qt5-immodule for Qt5
 
 Package: gcin-data
 Architecture: all
