@@ -8,6 +8,7 @@ gcin (2.8.3+dfsg1-1) experimental; urgency=medium
   * Add debian/gbp.conf
   * debian/control
     * Update Build-Depends for Qt5
+    * Add libappindicator3-dev as Build-Depends
     * Add gcin-qt5-immodule
   * debian/copyright
     * Add ChangZhuo Chen (陳昌倬)
@@ -17,7 +18,7 @@ gcin (2.8.3+dfsg1-1) experimental; urgency=medium
     * Remove get-orig-source
     * Use --fail-missing in dh_install
 
- -- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>  Thu, 22 Jan 2015 18:29:32 +0800
+ -- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>  Thu, 22 Jan 2015 22:49:28 +0800
 
 gcin (2.8.2+dfsg1-1) unstable; urgency=medium
 
