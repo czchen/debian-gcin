@@ -163,3 +163,16 @@ Description: support library to use Anthy in gcin
  and many other languages.
  .
  This package is the support library to use anthy in gcin.
+
+Package: gcin-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: ${misc:Depends},
+         gcin (= ${binary:Version}),
+Description: GTK+ based input method for Chinese users - debug files
+ gcin is a GTK+ based input method which focused mainly on Traditional
+ Chinese. However, it is also very useful for Simplified Chinese, Japanese,
+ and many other languages.
+ .
+ This package contains debug symbols which are useful for debug.
