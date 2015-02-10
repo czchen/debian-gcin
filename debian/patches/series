@@ -6,3 +6,4 @@ fix-ftbfs-on-kfreebsd.patch
 FTBFS_mips_powerpc_s390x.patch
 DFSG-Remove-dayi3.patch
 Use-qtchooser.patch
+reproducible-build.patch
