@@ -9,7 +9,7 @@ GTK3VER := $(shell pkg-config --variable=gtk_binary_version gtk+-3.0)
 DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 %:
-	dh $@ --dbg-package=gcin-dbg
+	dh $@
 
 override_dh_auto_clean:
 	make clean
