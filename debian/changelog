@@ -1,3 +1,11 @@
+gcin (2.8.3+dfsg1-2) unstable; urgency=medium
+
+  * Merge back to unstable
+  * Remove __DATE__ for reproducible build
+  * Install manpage for man/txt2gtab-phrase.1
+
+ -- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>  Wed, 03 Jun 2015 18:29:26 +0800
+
 gcin (2.8.3+dfsg1-1) experimental; urgency=medium
 
   * New upstream release.
