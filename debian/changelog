@@ -1,3 +1,9 @@
+gcin (2.8.3+dfsg1-3) unstable; urgency=medium
+
+  * Fix gcin-gtk2-immodule, gcin-gtk3-immodule installation error.
+
+ -- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>  Thu, 04 Jun 2015 13:19:33 +0800
+
 gcin (2.8.3+dfsg1-2) unstable; urgency=medium
 
   * Merge back to unstable
