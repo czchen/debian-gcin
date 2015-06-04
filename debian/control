@@ -3,7 +3,7 @@ Section: utils
 Priority: optional
 Maintainer: IME Packaging Team <pkg-ime-devel@lists.alioth.debian.org>
 Uploaders: Yao Wei (魏銘廷) <mwei@lxde.org>,
-           ChangZhuo Chen (陳昌倬) <czchen@gmail.com>
+           ChangZhuo Chen (陳昌倬) <czchen@gmail.com>,
 Homepage: http://hyperrate.com/dir.php?eid=67
 Build-Depends: debhelper (>= 9),
                autotools-dev,
@@ -50,7 +50,7 @@ Description: GTK+ based input method for Chinese users
 
 Package: gcin-data
 Architecture: all
-Depends: ${misc:Depends}
+Depends: ${misc:Depends},
 Replaces: gcin (<< 2.7.2+dfsg-1)
 Breaks: gcin (<< 2.7.2+dfsg-1)
 Description: icons and scripts for gcin
@@ -63,7 +63,7 @@ Description: icons and scripts for gcin
 
 Package: gcin-tables
 Architecture: any
-Depends: ${misc:Depends}
+Depends: ${misc:Depends},
 Replaces: gcin (<< 2.7.2+dfsg-1)
 Breaks: gcin (<< 2.7.2+dfsg-1)
 Description: input method tables for gcin
@@ -156,7 +156,7 @@ Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends},
          gcin (>= ${source:Version}),
-         anthy
+         anthy,
 Replaces: gcin (<< 2.7.2+dfsg-1)
 Breaks: gcin (<< 2.7.2+dfsg-1)
 Description: support library to use Anthy in gcin
