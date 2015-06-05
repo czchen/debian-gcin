@@ -1,17 +1,22 @@
 #!/bin/sh
 set -e
+set -u
 
-CMD=/usr/lib/`dpkg-architecture --host-arch ${DPKG_MAINTSCRIPT_ARCH} --query DEB_HOST_MULTIARCH`/libgtk2.0-0/gtk-query-immodules-2.0
+if [ -x /usr/bin/dpkg-architecture ]; then
+    CMD=/usr/lib/$(dpkg-architecture --host-arch ${DPKG_MAINTSCRIPT_ARCH} --query DEB_HOST_MULTIARCH)/libgtk2.0-0/gtk-query-immodules-2.0
 
-case "$1" in
-    remove|purge)
-        if [ -x ${CMD} ]; then
-            ${CMD} --update-cache
-        else
-            echo "Cannot find ${CMD}" >&2
-        fi;
-        ;;
-esac
+    if [ -x ${CMD} ]; then
+        case "$1" in
+            remove|purge)
+                ${CMD} --update-cache
+                ;;
+        esac
+    else
+        echo "Cannot find gtk-query-immodules-2.0" > &2
+    fi
+else
+    echo "Cannot find dpkg-architecture" > &2
+fi
 
 #DEBHELPER#
 
