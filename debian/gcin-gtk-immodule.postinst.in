@@ -11,7 +11,7 @@ if [ -x $GTK_QUERY_IMMODULES ]; then
             ;;
     esac
 else
-    echo "Cannot find $CMD" > &2
+    echo "Cannot find $CMD" >&2
 fi
 
 #DEBHELPER#
