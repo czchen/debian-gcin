@@ -103,7 +103,6 @@ Multi-Arch: same
 Depends: ${misc:Depends},
          ${shlibs:Depends},
          gcin (>= ${source:Version}),
-         dpkg-dev,
 Description: GTK2 input method module with gcin as backend
  gcin is a GTK+ based input method which focused mainly on Traditional
  Chinese. However, it is also very useful for Simplified Chinese, Japanese,
@@ -117,7 +116,6 @@ Multi-Arch: same
 Depends: ${misc:Depends},
          ${shlibs:Depends},
          gcin (>= ${source:Version}),
-         dpkg-dev,
 Description: GTK3 input method module with gcin as backend
  gcin is a GTK+ based input method which focused mainly on Traditional
  Chinese. However, it is also very useful for Simplified Chinese, Japanese,
