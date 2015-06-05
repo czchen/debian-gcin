@@ -1,3 +1,9 @@
+gcin (2.8.3+dfsg1-5) unstable; urgency=medium
+
+  * Fix maintainer script typos
+
+ -- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>  Fri, 05 Jun 2015 22:12:55 +0800
+
 gcin (2.8.3+dfsg1-4) unstable; urgency=medium
 
   * Fix gcin-gtk2-immodule, gcin-gtk3-immodule uninstallation error.
