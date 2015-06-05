@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+set -u
+
+GTK_QUERY_IMMODULES=%%GTK_QUERY_IMMODULES%%
+
+if [ -x $GTK_QUERY_IMMODULES ]; then
+    case "$1" in
+        configure)
+            $GTK_QUERY_IMMODULES --update-cache
+            ;;
+    esac
+else
+    echo "Cannot find $CMD" > &2
+fi
+
+#DEBHELPER#
+
+exit 0

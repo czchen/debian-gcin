@@ -9,6 +9,8 @@ include /usr/share/dpkg/default.mk
 
 GTK2VER := $(shell pkg-config --variable=gtk_binary_version gtk+-2.0)
 GTK3VER := $(shell pkg-config --variable=gtk_binary_version gtk+-3.0)
+GTK2_IMMODULES := $(shell pkg-config --variable=libdir gtk+-2.0)/libgtk2.0-0/gtk-query-immodules-2.0
+GTK3_IMMODULES := $(shell pkg-config --variable=libdir gtk+-3.0)/libgtk-3-0/gtk-query-immodules-3.0
 
 %:
 	dh $@
@@ -18,6 +20,11 @@ override_dh_auto_clean:
 
 override_dh_auto_configure:
 	dh_auto_configure -- --gcinlibdir=/usr/lib/$(DEB_HOST_MULTIARCH)/gcin
+
+	sed 's,%%GTK_QUERY_IMMODULES%%,$(GTK2_IMMODULES),g' $(CURDIR)/debian/gcin-gtk-immodule.postinst.in > $(CURDIR)/debian/gcin-gtk2-immodule.postinst
+	sed 's,%%GTK_QUERY_IMMODULES%%,$(GTK2_IMMODULES),g' $(CURDIR)/debian/gcin-gtk-immodule.postrm.in > $(CURDIR)/debian/gcin-gtk2-immodule.postrm
+	sed 's,%%GTK_QUERY_IMMODULES%%,$(GTK3_IMMODULES),g' $(CURDIR)/debian/gcin-gtk-immodule.postinst.in > $(CURDIR)/debian/gcin-gtk3-immodule.postinst
+	sed 's,%%GTK_QUERY_IMMODULES%%,$(GTK3_IMMODULES),g' $(CURDIR)/debian/gcin-gtk-immodule.postrm.in > $(CURDIR)/debian/gcin-gtk3-immodule.postrm
 
 override_dh_auto_install:
 	make install DESTDIR=$(CURDIR)/debian/tmp
